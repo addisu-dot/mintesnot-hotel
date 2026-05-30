@@ -33,19 +33,23 @@ export function SiteLogo({
       )}
       aria-label={t("brand")}
     >
-      <Image
-        src="/Images/logo/logo.png"
-        alt=""
-        width={48}
-        height={48}
-        priority={priority}
-        sizes="(max-width: 640px) 32px, 48px"
-        className={cn(
-          "h-8 w-auto shrink-0 object-contain sm:h-10 md:h-12",
-          compact && "h-8 sm:h-9",
-          imageClassName
-        )}
-      />
+      <div className={cn(
+        "relative shrink-0 overflow-hidden rounded-full",
+        "h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12",
+        compact && "h-8 w-8 sm:h-9 sm:w-9"
+      )}>
+        <Image
+          src="/Images/logo/logo.png"
+          alt=""
+          fill
+          priority={priority}
+          sizes="(max-width: 640px) 32px, 48px"
+          className={cn(
+            "object-contain p-1",
+            imageClassName
+          )}
+        />
+      </div>
       <span
         className={cn(
           "truncate font-bold leading-tight tracking-wide",

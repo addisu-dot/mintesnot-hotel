@@ -7,7 +7,8 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { LanguageSelect } from "@/components/language-select";
-import { SiteLogo } from "@/components/site-logo";
+import { NavbarBrand } from "@/components/navbar-brand";
+import { useSplash } from "@/contexts/splash-context";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/language-context";
@@ -21,6 +22,7 @@ import { cn } from "@/lib/utils";
 
 const navHrefs = [
   { href: "/", key: "nav.home" },
+  { href: "/exterior", key: "nav.exterior" },
   { href: "/rooms", key: "nav.rooms" },
   { href: "/dining", key: "nav.dining" },
   { href: "/about", key: "nav.about" },
@@ -30,10 +32,11 @@ const navHrefs = [
 export function Navbar() {
   const pathname = usePathname();
   const { t } = useLanguage();
+  const { splashActive } = useSplash();
   const isHome = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const useOverlayStyle = isHome && !mobileOpen;
+  const useOverlayStyle = isHome && !mobileOpen && !splashActive;
 
   const closeMobile = () => setMobileOpen(false);
 
@@ -69,9 +72,8 @@ export function Navbar() {
         )}
       >
         <div className="container mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:h-16 sm:gap-3 sm:px-6 lg:px-8">
-          <SiteLogo
+          <NavbarBrand
             priority
-            compact
             className="min-w-0 flex-1 overflow-hidden sm:mr-auto sm:flex-initial sm:max-w-none"
             imageClassName={cn(
               useOverlayStyle &&
@@ -133,7 +135,7 @@ export function Navbar() {
 
             <Button
               nativeButton={false}
-              render={<Link href="/contact" />}
+              render={<Link href="/contact#booking" />}
               size="sm"
               className={cn(
                 "btn-cta hidden sm:inline-flex",
@@ -236,7 +238,7 @@ export function Navbar() {
                     className="pt-2"
                   >
                     <Link
-                      href="/contact"
+                      href="/contact#booking"
                       className="btn-cta flex h-11 w-full items-center justify-center rounded-full text-sm transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
                       onClick={closeMobile}
                     >

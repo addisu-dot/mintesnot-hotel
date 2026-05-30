@@ -18,19 +18,18 @@ export function ContactPageContent() {
       <ContactSection />
 
       <section
-        className="mx-auto max-w-xl border-t border-border/60 px-4 py-14 sm:px-6 lg:px-8 lg:py-20"
+        id="booking"
+        className="mx-auto max-w-xl scroll-mt-20 px-4 pb-20 sm:px-6 lg:px-8 lg:pb-28"
         aria-labelledby="booking-heading"
       >
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
-          {t("pages.contact.reservationsEyebrow")}
-        </p>
+        <p className="section-eyebrow">{t("pages.contact.reservationsEyebrow")}</p>
         <h2
           id="booking-heading"
-          className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+          className="section-title mt-3 text-2xl sm:text-3xl"
         >
           {t("pages.contact.reservationsTitle")}
         </h2>
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+        <p className="mt-4 text-base leading-relaxed tracking-wide text-muted-foreground">
           {t("pages.contact.reservationsDescription")}
         </p>
         <div className="mt-8">

@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans, Geist_Mono } from "next/font/google";
 
-import { Navbar } from "@/components/navbar";
-import { PageTransition } from "@/components/page-transition";
+import { AppShell } from "@/components/app-shell";
 import { Providers } from "@/components/providers";
-import { SiteFooter } from "@/components/site-footer";
 import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
@@ -42,9 +40,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col overflow-x-hidden font-sans">
         <Providers>
-          <Navbar />
-          <PageTransition>{children}</PageTransition>
-          <SiteFooter />
+          <AppShell>{children}</AppShell>
           <Toaster position="top-center" richColors closeButton />
         </Providers>
       </body>

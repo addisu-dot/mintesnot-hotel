@@ -1,18 +1,27 @@
-import { SITE_CONTACT } from "@/lib/site-contact";
+import { cn } from "@/lib/utils";
 
-const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(SITE_CONTACT.mapQuery)}&z=16&output=embed`;
+const MAP_EMBED_SRC =
+  "https://maps.google.com/maps?q=7.248297,37.902343&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
-export function MapEmbed() {
+type MapEmbedProps = {
+  className?: string;
+};
+
+export function MapEmbed({ className }: MapEmbedProps) {
   return (
-    <div className="relative h-full min-h-[280px] overflow-hidden rounded-2xl border border-white/10 bg-[#141a14] shadow-inner sm:min-h-[360px] lg:min-h-[100%]">
-      <div
-        className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#141a14]/80 via-transparent to-[#141a14]/30"
-        aria-hidden
-      />
+    <div
+      className={cn(
+        "relative h-64 w-full overflow-hidden rounded-xl shadow-lg sm:h-72 md:h-80",
+        className
+      )}
+    >
       <iframe
-        title="Map — near Abune Teklehaimanot Church, Durame"
-        src={mapSrc}
-        className="absolute inset-0 h-full w-full border-0 opacity-85 [filter:grayscale(0.35)_brightness(0.65)_contrast(1.1)]"
+        title="Mintesnot Hotel — Durame"
+        src={MAP_EMBED_SRC}
+        className={cn(
+          "h-full w-full border-0",
+          "dark:invert-[90%] dark:hue-rotate-180 dark:brightness-[0.85] dark:contrast-[1.05]"
+        )}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen

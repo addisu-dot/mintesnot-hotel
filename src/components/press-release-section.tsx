@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ExternalLink, Newspaper } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/language-context";
@@ -15,6 +15,14 @@ import { cn } from "@/lib/utils";
 
 export function PressReleaseSection() {
   const { t } = useLanguage();
+  const { scrollY } = useScroll();
+  
+  // Directional scroll animation - detect scroll direction
+  const scrollVelocity = useTransform(scrollY, [0, 100], [0, 1]);
+  const x = useTransform(scrollVelocity, (value) => {
+    // This will be controlled by whileInView with direction detection
+    return 0;
+  });
 
   return (
     <section
@@ -22,7 +30,13 @@ export function PressReleaseSection() {
       aria-labelledby="press-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
+        <motion.div 
+          className="mx-auto max-w-3xl text-center"
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: premiumEase }}
+        >
           <p className="section-eyebrow">{t("press.eyebrow")}</p>
           <h2
             id="press-heading"
@@ -30,20 +44,26 @@ export function PressReleaseSection() {
           >
             {t("press.title")}
           </h2>
-          <p className="mt-6 text-base leading-relaxed tracking-wide text-muted-foreground">
+          <motion.p 
+            className="mt-6 text-base leading-relaxed tracking-wide text-muted-foreground"
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.1, ease: premiumEase }}
+          >
             {t("press.subtitle")}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <motion.article
           className={cn(
             "bento-card bento-card-hover group relative mx-auto mt-12 max-w-4xl",
             "ring-1 ring-stone-200/60 dark:ring-zinc-800"
           )}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.55, ease: premiumEase }}
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: premiumEase }}
         >
           <div
             className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-brand-gold/80 to-transparent"

@@ -3,7 +3,8 @@ export const SITE_CONTACT = {
   phones: ["0978392777", "0934814220"] as const,
   facebookUrl:
     "https://www.facebook.com/profile.php?id=61588035984758",
-  mapQuery: "Abune Teklehaimanot Church, Durame, Ethiopia",
+  /** Mintesnot Hotel — Durame (embed uses lat/lng in map-embed.tsx) */
+  mapQuery: "7.248297,37.902343",
 } as const;
 
 export function formatPhoneDisplay(phone: string) {

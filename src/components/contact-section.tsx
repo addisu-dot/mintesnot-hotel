@@ -3,7 +3,6 @@
 import { MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { ContactForm } from "@/components/contact-form";
 import { MapEmbed } from "@/components/map-embed";
 import { useLanguage } from "@/contexts/language-context";
 import { premiumEase } from "@/lib/motion-presets";
@@ -14,12 +13,12 @@ export function ContactSection() {
 
   return (
     <section
-      className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8 lg:pb-28"
+      className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:px-8"
       aria-labelledby="contact-heading"
     >
-      <div className="grid gap-6 lg:grid-cols-2 lg:gap-6">
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
         <motion.div
-          className="bento-card bento-card-hover flex flex-col gap-8 p-6 sm:p-8 lg:p-10"
+          className="bento-card flex flex-col gap-8 p-6 sm:p-8 lg:p-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -41,7 +40,7 @@ export function ContactSection() {
           <ul className="space-y-5 text-sm sm:text-base">
             <li className="flex gap-3">
               <MapPin
-                className="mt-0.5 size-5 shrink-0 text-brand-gold dark:text-brand-gold"
+                className="mt-0.5 size-5 shrink-0 text-brand-gold"
                 aria-hidden
               />
               <div>
@@ -55,7 +54,7 @@ export function ContactSection() {
             </li>
             <li className="flex gap-3">
               <Phone
-                className="mt-0.5 size-5 shrink-0 text-brand-gold dark:text-brand-gold"
+                className="mt-0.5 size-5 shrink-0 text-brand-gold"
                 aria-hidden
               />
               <div>
@@ -77,19 +76,17 @@ export function ContactSection() {
               </div>
             </li>
           </ul>
-
-          <ContactForm />
         </motion.div>
 
         <motion.div
-          className="bento-card bento-card-hover flex min-h-[280px] flex-col overflow-hidden p-2 lg:min-h-[520px]"
+          className="bento-card flex flex-col gap-3 overflow-hidden p-4 sm:p-5"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.48, delay: 0.08, ease: premiumEase }}
         >
-          <MapEmbed />
-          <p className="px-4 pb-3 text-center text-xs tracking-wide text-muted-foreground lg:text-left">
+          <MapEmbed className="flex-1" />
+          <p className="text-center text-xs tracking-wide text-muted-foreground lg:text-left">
             {t("contact.mapNote")}
           </p>
         </motion.div>

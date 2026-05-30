@@ -80,7 +80,7 @@ export function SiteFooter() {
               ))}
             </ul>
             <Link
-              href="/contact"
+              href="/contact#booking"
               className="mt-5 inline-block text-sm font-medium tracking-wide text-brand-gold transition-colors duration-300 hover:text-amber-300"
             >
               {t("footer.bookOrMessage")}
