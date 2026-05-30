@@ -7,6 +7,7 @@ import { PageTransition } from "@/components/page-transition";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteWatermark } from "@/components/site-watermark";
 import { SplashScreen } from "@/components/splash-screen";
+import { FullScreenOverlay } from "@/components/fullscreen-overlay";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
@@ -20,6 +21,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <SiteFooter />
         </div>
       </LayoutGroup>
+      <FullScreenOverlay />
     </div>
   );
 }

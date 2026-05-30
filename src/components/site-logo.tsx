@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { useLanguage } from "@/contexts/language-context";
+import { useFullScreen } from "@/contexts/fullscreen-context";
 import { cn } from "@/lib/utils";
 
 type SiteLogoProps = {
@@ -23,32 +24,40 @@ export function SiteLogo({
   compact = false,
 }: SiteLogoProps) {
   const { t } = useLanguage();
+  const { openFullScreen } = useFullScreen();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openFullScreen();
+  };
 
   return (
     <Link
       href="/"
       className={cn(
-        "inline-flex min-w-0 max-w-full items-center gap-2 transition-opacity hover:opacity-90 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none rounded-sm sm:gap-3",
+        "inline-flex min-w-0 max-w-full items-center gap-2 transition-opacity hover:opacity-90 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none rounded-sm sm:gap-3 cursor-pointer",
         className
       )}
       aria-label={t("brand")}
+      onClick={handleLogoClick}
     >
       <div className={cn(
-        "relative shrink-0 overflow-hidden rounded-[40px]",
-        "aspect-[4/3]",
-        "h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12",
-        compact && "h-8 w-8 sm:h-9 sm:w-9"
+        "relative shrink-0",
+        "h-8 w-auto sm:h-10 md:h-12",
+        compact && "h-8 sm:h-9"
       )}>
         <Image
-          src="/Images/logo/logo.png"
+          src="/Images/logo/oval-logo.jpg"
           alt=""
-          fill
+          width={0}
+          height={0}
           priority={priority}
           sizes="(max-width: 640px) 32px, 48px"
           className={cn(
-            "object-cover p-0",
+            "w-auto h-auto object-contain",
             imageClassName
           )}
+          style={{ width: 'auto', height: 'auto' }}
         />
       </div>
       <span

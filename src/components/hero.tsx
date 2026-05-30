@@ -59,15 +59,17 @@ export function Hero() {
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 0.15, scale: 1 }}
           transition={{ duration: 1.2, ease: premiumEase }}
-          className="relative aspect-[4/3] w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] overflow-hidden rounded-[40px]"
+          className="relative w-[80vw] max-w-[800px]"
         >
           <Image
-            src="/Images/logo/logo.png"
+            src="/Images/logo/oval-logo.jpg"
             alt=""
-            fill
+            width={0}
+            height={0}
             priority
-            className="object-cover blur-3xl opacity-20 p-0"
+            className="w-auto h-auto object-contain blur-3xl opacity-20"
             sizes="(max-width: 768px) 80vw, 800px"
+            style={{ width: 'auto', height: 'auto' }}
           />
         </motion.div>
       </div>

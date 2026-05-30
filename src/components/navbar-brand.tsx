@@ -40,7 +40,7 @@ export function NavbarBrand({
       {showLogoInNav && (
         <motion.div
           layoutId="brand-logo-image"
-          className="relative aspect-[4/3] h-8 w-8 shrink-0 overflow-hidden rounded-[40px] sm:h-9 sm:w-9 md:h-10 md:w-10"
+          className="relative h-8 w-auto shrink-0 sm:h-9 md:h-10"
           transition={{
             type: "spring",
             stiffness: 260,
@@ -49,12 +49,14 @@ export function NavbarBrand({
           }}
         >
           <Image
-            src="/Images/logo/logo.png"
+            src="/Images/logo/oval-logo.jpg"
             alt=""
-            fill
+            width={0}
+            height={0}
             priority={priority}
             sizes="40px"
-            className={cn("object-cover p-0", imageClassName)}
+            className={cn("w-auto h-auto object-contain", imageClassName)}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </motion.div>
       )}
