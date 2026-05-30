@@ -34,7 +34,8 @@ export function SiteLogo({
       aria-label={t("brand")}
     >
       <div className={cn(
-        "relative shrink-0 overflow-hidden rounded-full",
+        "relative shrink-0 overflow-hidden rounded-[40px]",
+        "aspect-[4/3]",
         "h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12",
         compact && "h-8 w-8 sm:h-9 sm:w-9"
       )}>
@@ -45,7 +46,7 @@ export function SiteLogo({
           priority={priority}
           sizes="(max-width: 640px) 32px, 48px"
           className={cn(
-            "object-contain p-1",
+            "object-cover p-0",
             imageClassName
           )}
         />

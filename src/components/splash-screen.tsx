@@ -64,16 +64,16 @@ export function SplashScreen() {
             transition={{ duration: PHASE_1_DURATION / 1000, ease: premiumEase }}
           >
             <motion.div
-              className="relative w-[70vw] h-[70vw] max-w-[600px] max-h-[600px] sm:w-[60vw] sm:h-[60vw] sm:max-w-[700px] sm:max-h-[700px] overflow-hidden rounded-full"
+              className="relative aspect-[4/3] w-[70vw] h-[70vw] max-w-[600px] max-h-[600px] sm:w-[60vw] sm:h-[60vw] sm:max-w-[700px] sm:max-h-[700px] overflow-hidden rounded-[40px]"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: PHASE_1_DURATION / 1000, ease: premiumEase }}
             >
               <Image
                 src="/Images/logo/logo.png"
-                alt=""
+                alt="Mintesnot Hotel Logo"
                 fill
-                className="object-contain mix-blend-multiply p-8"
+                className="object-cover mix-blend-multiply p-0"
                 sizes="(max-width: 768px) 70vw, 700px"
                 priority
               />
@@ -92,7 +92,7 @@ export function SplashScreen() {
           >
             <motion.div
               layoutId="brand-logo-image"
-              className="relative h-40 w-40 overflow-hidden rounded-full sm:h-48 sm:w-48 md:h-56 md:w-56"
+              className="relative aspect-[4/3] h-40 w-40 overflow-hidden rounded-[40px] sm:h-48 sm:w-48 md:h-56 md:w-56"
               initial={{ y: 0, scale: 1 }}
               animate={{ y: "-45vh", scale: 0.4 }}
               transition={{ 
@@ -102,9 +102,9 @@ export function SplashScreen() {
             >
               <Image
                 src="/Images/logo/logo.png"
-                alt=""
+                alt="Mintesnot Hotel Logo"
                 fill
-                className="object-contain mix-blend-multiply p-1"
+                className="object-cover mix-blend-multiply p-0"
                 sizes="224px"
                 priority
               />

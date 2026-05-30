@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
+import { SITE_CONTACT } from "@/lib/site-contact";
 
 const MAP_EMBED_SRC =
-  "https://maps.google.com/maps?q=7.248297,37.902343&t=&z=16&ie=UTF8&iwloc=&output=embed";
+  `https://maps.google.com/maps?q=${encodeURIComponent(SITE_CONTACT.mapQuery)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
 type MapEmbedProps = {
   className?: string;

@@ -83,7 +83,7 @@ export function Navbar() {
           />
 
           <nav
-            className="hidden items-center gap-6 xl:gap-7 lg:flex"
+            className="hidden"
             aria-label="Main navigation"
           >
             {navHrefs.map(({ href, key }) => {
@@ -114,43 +114,10 @@ export function Navbar() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-            <div
-              className={cn(
-                "hidden items-center gap-2 rounded-full border p-1.5 md:flex",
-                useOverlayStyle
-                  ? "border-white/20 bg-black/40 backdrop-blur-sm"
-                  : "border-stone-200/80 bg-stone-100/60 dark:border-brand-gold/20 dark:bg-zinc-950"
-              )}
-            >
-              <LanguageSelect variant={useOverlayStyle ? "overlay" : "default"} />
-              <div
-                className={cn(
-                  "mx-0.5 h-5 w-px shrink-0",
-                  useOverlayStyle ? "bg-white/20" : "bg-border dark:bg-zinc-700"
-                )}
-                aria-hidden
-              />
-              <ThemeToggle variant={useOverlayStyle ? "overlay" : "default"} />
-            </div>
-
-            <Button
-              nativeButton={false}
-              render={<Link href="/contact#booking" />}
-              size="sm"
-              className={cn(
-                "btn-cta hidden sm:inline-flex",
-                premiumButtonHover,
-                useOverlayStyle &&
-                  "!border-white/30 !bg-white/15 !text-white hover:!bg-white/25 hover:!text-white hover:!shadow-white/10"
-              )}
-            >
-              {t("bookNow")}
-            </Button>
-
             <button
               type="button"
               className={cn(
-                "inline-flex size-10 shrink-0 items-center justify-center rounded-lg transition-all duration-300 ease-in-out lg:hidden",
+                "inline-flex size-10 shrink-0 items-center justify-center rounded-lg transition-all duration-300 ease-in-out",
                 useOverlayStyle
                   ? "text-white hover:bg-white/10"
                   : "text-foreground hover:bg-muted dark:text-zinc-100 dark:hover:bg-zinc-900"
@@ -172,7 +139,7 @@ export function Navbar() {
 
       <AnimatePresence>
         {mobileOpen && (
-          <div className="lg:hidden">
+          <div>
             <motion.button
               type="button"
               aria-label={t("menu.close")}
@@ -187,7 +154,7 @@ export function Navbar() {
             <motion.nav
               id="mobile-nav"
               className="fixed inset-x-0 top-14 z-50 max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-b border-stone-200/70 bg-stone-50/98 shadow-2xl shadow-black/10 sm:top-16 dark:border-brand-gold/20 dark:bg-black dark:shadow-black/80"
-              aria-label="Mobile navigation"
+              aria-label="Navigation"
               initial="initial"
               animate="animate"
               exit="exit"
